@@ -7,7 +7,7 @@ plugins {
 }
 
 application {
-    mainClass = 'hexlet.code.App'
+    mainClass = 'hexlet.code.Validator'
 }
 
 compileJava {
