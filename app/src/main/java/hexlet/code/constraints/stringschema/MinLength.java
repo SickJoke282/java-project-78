@@ -2,7 +2,7 @@ package hexlet.code.constraints.stringschema;
 
 import hexlet.code.constraints.Constraint;
 
-public class MinLength implements Constraint {
+public final class MinLength implements Constraint {
     private final int minLen;
     public MinLength(int minLen) {
         this.minLen = minLen;

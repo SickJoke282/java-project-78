@@ -2,10 +2,10 @@ package hexlet.code.constraints.stringschema;
 
 import hexlet.code.constraints.Constraint;
 
-public class Contains implements Constraint {
+public final class Contains implements Constraint {
     private final String expected;
-    public Contains(String expected) {
-        this.expected = expected;
+    public Contains(String substring) {
+        this.expected = substring;
     }
     @Override
     public boolean validate(Object value) {

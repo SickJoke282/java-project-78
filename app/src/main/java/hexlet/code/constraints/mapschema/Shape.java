@@ -6,7 +6,7 @@ import hexlet.code.schemas.BaseSchema;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Shape implements Constraint {
+public final class Shape implements Constraint {
     private final Map<String, BaseSchema> schemas;
     public Shape(Map<String, BaseSchema> schemas) {
         this.schemas = schemas;

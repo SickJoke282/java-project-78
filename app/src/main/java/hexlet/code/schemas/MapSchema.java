@@ -7,20 +7,20 @@ import hexlet.code.constraints.mapschema.Shape;
 
 import java.util.Map;
 
-public class MapSchema extends BaseSchema {
+public final class MapSchema extends BaseSchema {
     public MapSchema() {
-        constraints.add(new IsMap());
+        addConstraints(new IsMap());
     }
     public MapSchema required() {
-        constraints.add(new Required());
+        addConstraints(new Required());
         return this;
     }
     public MapSchema sizeof(int limit) {
-        constraints.add(new Sizeof(limit));
+        addConstraints(new Sizeof(limit));
         return this;
     }
     public MapSchema shape(Map<String, BaseSchema> schemas) {
-        constraints.add(new Shape(schemas));
+        addConstraints(new Shape(schemas));
         return this;
     }
 }

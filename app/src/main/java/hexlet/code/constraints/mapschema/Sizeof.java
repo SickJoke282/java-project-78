@@ -4,7 +4,7 @@ import hexlet.code.constraints.Constraint;
 
 import java.util.HashMap;
 
-public class Sizeof implements Constraint {
+public final class Sizeof implements Constraint {
     private final int limit;
     public Sizeof(int limit) {
         this.limit = limit;

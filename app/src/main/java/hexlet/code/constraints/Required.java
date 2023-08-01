@@ -1,6 +1,6 @@
 package hexlet.code.constraints;
 
-public class Required implements Constraint {
+public final class Required implements Constraint {
     @Override
     public boolean validate(Object value) {
         return !(value == null

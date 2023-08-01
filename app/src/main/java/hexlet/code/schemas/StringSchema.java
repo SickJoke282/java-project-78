@@ -5,20 +5,20 @@ import hexlet.code.constraints.stringschema.MinLength;
 import hexlet.code.constraints.Required;
 import hexlet.code.constraints.stringschema.Contains;
 
-public class StringSchema extends BaseSchema {
+public final class StringSchema extends BaseSchema {
     public StringSchema() {
-        constraints.add(new IsString());
+        addConstraints(new IsString());
     }
     public StringSchema required() {
-        constraints.add(new Required());
+        addConstraints(new Required());
         return this;
     }
     public StringSchema minLength(int minLength) {
-        constraints.add(new MinLength(minLength));
+        addConstraints(new MinLength(minLength));
         return this;
     }
     public StringSchema contains(String str) {
-        constraints.add(new Contains(str));
+        addConstraints(new Contains(str));
         return this;
     }
 }

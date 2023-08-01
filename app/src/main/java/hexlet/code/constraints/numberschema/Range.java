@@ -2,7 +2,7 @@ package hexlet.code.constraints.numberschema;
 
 import hexlet.code.constraints.Constraint;
 
-public class Range implements Constraint {
+public final class Range implements Constraint {
     private final int lowBound;
     private final int topBound;
     public Range(int lowBound, int topBound) {
