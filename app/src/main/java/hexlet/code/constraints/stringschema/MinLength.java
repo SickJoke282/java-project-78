@@ -4,8 +4,8 @@ import hexlet.code.constraints.Constraint;
 
 public final class MinLength implements Constraint {
     private final int minLen;
-    public MinLength(int minLen) {
-        this.minLen = minLen;
+    public MinLength(int length) {
+        this.minLen = length;
     }
     @Override
     public boolean validate(Object value) {

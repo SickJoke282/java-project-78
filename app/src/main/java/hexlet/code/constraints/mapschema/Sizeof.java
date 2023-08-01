@@ -6,8 +6,8 @@ import java.util.HashMap;
 
 public final class Sizeof implements Constraint {
     private final int limit;
-    public Sizeof(int limit) {
-        this.limit = limit;
+    public Sizeof(int number) {
+        this.limit = number;
     }
     @Override
     public boolean validate(Object value) {

@@ -8,8 +8,8 @@ import java.util.Map;
 
 public final class Shape implements Constraint {
     private final Map<String, BaseSchema> schemas;
-    public Shape(Map<String, BaseSchema> schemas) {
-        this.schemas = schemas;
+    public Shape(Map<String, BaseSchema> data) {
+        this.schemas = data;
     }
     @Override
     public boolean validate(Object value) {
