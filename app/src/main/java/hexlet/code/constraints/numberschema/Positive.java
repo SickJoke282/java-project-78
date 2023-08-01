@@ -1,6 +1,8 @@
-package hexlet.code.constraints;
+package hexlet.code.constraints.numberschema;
 
-public class Positive implements Constraint{
+import hexlet.code.constraints.Constraint;
+
+public class Positive implements Constraint {
     @Override
     public boolean validate(Object value) {
         return value == null || (int) value > 0;
