@@ -1,4 +1,6 @@
-package hexlet.code.constraints;
+package hexlet.code.constraints.stringschema;
+
+import hexlet.code.constraints.Constraint;
 
 public class Contains implements Constraint {
     private final String expected;

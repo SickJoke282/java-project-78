@@ -1,4 +1,6 @@
-package hexlet.code.constraints;
+package hexlet.code.constraints.stringschema;
+
+import hexlet.code.constraints.Constraint;
 
 public class MinLength implements Constraint {
     private final int minLen;
