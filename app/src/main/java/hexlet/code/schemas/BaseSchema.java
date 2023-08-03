@@ -1,18 +1,17 @@
 package hexlet.code.schemas;
 
-import hexlet.code.constraints.Constraint;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Predicate;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class BaseSchema {
-    private List<Constraint> constraints = new ArrayList<>();
-    public final void addConstraints(Constraint constraint) {
-        constraints.add(constraint);
+public abstract class BaseSchema {
+    protected Map<String, Predicate> checks = new HashMap<>();
+    protected final void addCheck(String name, Predicate function) {
+        checks.put(name, function);
     }
     public final boolean isValid(Object value) {
-        for (Constraint constraint: constraints) {
-            if (!constraint.validate(value)) {
+        for (Map.Entry<String, Predicate> entry: checks.entrySet()) {
+            if (!entry.getValue().test(value)) {
                 return false;
             }
         }

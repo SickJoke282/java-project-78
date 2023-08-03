@@ -1,24 +1,21 @@
 package hexlet.code.schemas;
 
-import hexlet.code.constraints.numberschema.IsNumber;
-import hexlet.code.constraints.numberschema.Positive;
-import hexlet.code.constraints.Required;
-import hexlet.code.constraints.numberschema.Range;
+import java.util.Objects;
 
 public final class NumberSchema extends BaseSchema {
     public NumberSchema() {
-        addConstraints(new IsNumber());
+        addCheck("isNumber", value -> value == null || value.getClass() == Integer.class);
     }
     public NumberSchema required() {
-        addConstraints(new Required());
+        addCheck("required", Objects::nonNull);
         return this;
     }
     public NumberSchema positive() {
-        addConstraints(new Positive());
+        addCheck("positive", value -> value == null || (int) value > 0);
         return this;
     }
     public NumberSchema range(int lowBound, int topBound) {
-        addConstraints(new Range(lowBound, topBound));
+        addCheck("range", value -> (int) value >= lowBound && (int) value <= topBound);
         return this;
     }
 }

@@ -1,24 +1,20 @@
 package hexlet.code.schemas;
 
-import hexlet.code.constraints.stringschema.IsString;
-import hexlet.code.constraints.stringschema.MinLength;
-import hexlet.code.constraints.Required;
-import hexlet.code.constraints.stringschema.Contains;
-
 public final class StringSchema extends BaseSchema {
     public StringSchema() {
-        addConstraints(new IsString());
+        addCheck("isString", value -> value == null || value.getClass() == String.class);
     }
     public StringSchema required() {
-        addConstraints(new Required());
+        addCheck("required", value -> !(value == null
+                || value instanceof String && ((String) value).isEmpty()));
         return this;
     }
     public StringSchema minLength(int minLength) {
-        addConstraints(new MinLength(minLength));
+        addCheck("minLength", value -> ((String) value).length() >= minLength);
         return this;
     }
     public StringSchema contains(String str) {
-        addConstraints(new Contains(str));
+        addCheck("contains", value -> ((String) value).contains(str));
         return this;
     }
 }

@@ -1,26 +1,30 @@
 package hexlet.code.schemas;
 
-import hexlet.code.constraints.Required;
-import hexlet.code.constraints.mapschema.IsMap;
-import hexlet.code.constraints.mapschema.Sizeof;
-import hexlet.code.constraints.mapschema.Shape;
-
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public final class MapSchema extends BaseSchema {
     public MapSchema() {
-        addConstraints(new IsMap());
+        addCheck("isMap", value -> value == null || value.getClass() == HashMap.class);
     }
     public MapSchema required() {
-        addConstraints(new Required());
+        addCheck("required", Objects::nonNull);
         return this;
     }
     public MapSchema sizeof(int limit) {
-        addConstraints(new Sizeof(limit));
+        addCheck("sizeof", value -> ((HashMap<?, ?>) value).size() == limit);
         return this;
     }
     public MapSchema shape(Map<String, BaseSchema> schemas) {
-        addConstraints(new Shape(schemas));
+        addCheck("shape", value -> {
+            for (Map.Entry<String, Object> entry: ((HashMap<String, Object>) value).entrySet()) {
+                if (!schemas.get(entry.getKey()).isValid(entry.getValue())) {
+                    return false;
+                }
+            }
+            return true;
+        });
         return this;
     }
 }
